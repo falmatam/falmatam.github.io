@@ -1,0 +1,5 @@
+<table id="table" style="display: none">
+  <tbody><tr>
+    <td id="input">Blah</td>
+  </tr>  
+</tbody></table>
