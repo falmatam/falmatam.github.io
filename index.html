@@ -1,85 +1,329 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>MAS Self-Accounting App</title>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script>alert("NOTE: Database not yet implemented. Do not register -- simply run demo.");</script>
-    <style>
-body{
-    background-color: #525252;
-}
-.centered-form{
-    margin-top: 60px;
-}
-
-.centered-form .panel{
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-</style>
-  </head>
-  <body>
-
-
-
-<div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                        <center><h3 class="panel-title">Register Now!</h3></center>
+	<head>
+    	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0">
+    	<!-- Bootstrap minified CSS -->
+		<link rel="stylesheet" href="css/bootstrap-4.0.0-alpha.3/dist/bootstrap.min.css">
+        <!-- Bootstrap Optional theme -->
+        <link rel="stylesheet" href="css/bootstrap-4.0.0-alpha.3/dist/bootstrap-style.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    
+    	<!-- Nav -->
+        <nav class="navbar-static-top">
+        	<div class="container-fluid">
+				<div class="navbar-header">
+                    <a class="navbar-brand" onclick="window.location.href='/'" href=""></a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#popup">
+                        <span class="text">Menu</span>
+                        <span class="icon-bars">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </span>
+                    </button>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" onclick="window.location.href='/find-a-dealer'">
+                        <span class="text">Dealer</span>
+                        <span class="icon-location"></span>
+                    </button>
+                </div>
+                <div id="popup" class="collapse navbar-collapse">
+                    <div class="popup-logo"><a href="/"><img src="img/logo.jpg" width="50" height="32"></a></div>
+                    <div class="popup-close-top"><button data-toggle="collapse" data-target="#popup"></button></div>
+                    <div class="popup-content">
+                        <div class="left">
+                        	<div class="words-above-a-line">
+                                <span>Shopping Tools</span>
+                            </div>
+                            <div class="shopping-tools">
+                                <ul>
+                                    <li><a onclick="window.location.href='/build-and-price'">Build &amp; Price</a></li><!--
+                                 --><li><a onclick="window.location.href='/search-inventory'">Search Inventory</a></li><!--
+                                 --><li><a onclick="window.location.href='/find-a-dealer'">Find a Dealer</a></li><!--
+                                 --><li><a onclick="window.location.href='/local-offers'">Local Offers</a></li><!--
+                                 --><li><a onclick="window.location.href='/request-a-quote'">Request a Quote</a></li><!--
+                                 --><li><a onclick="window.location.href='/schedule-a-test-drive'">Schedule a Test Drive</a></li><!--
+                                 --><li><a onclick="window.location.href='/e-brochures'">E-Brochures</a></li><!--
+                                 --><li><a onclick="window.location.href='/vehicle-lineup'">Vehicle Lineup</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                        <form role="form">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                            <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-                                    </div>
-                                </div>
+                        <div class="right">
+                        	<div class="words-above-a-line">
+                                <span>More Links</span>
                             </div>
+                            <div class="more-links">
+                                <ul>
+                                    <li><a onclick="window.location.href='/hyundai-assurance'">Hyundai Assurance</a></li><!--
+                                 --><li><a onclick="window.location.href='/my-hyundai'">My Hyundai</a></li><!--
+                                 --><li><a onclick="window.location.href='/why-hyundai'">Why Hyundai</a></li><!--
+                                 --><li><a onclick="window.location.href='/blue-link'">Blue Link<sup>&#174;</sup></a></li><!--
+                                 --><li><a onclick="window.location.href='/receive-updates'">Receive Updates</a></li><!--
+                                 --><li><a onclick="window.location.href='/vehicle-accessories'">Vehicle Accessories</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-close-bottom"><button class="navbar-toggle" data-toggle="collapse" data-target="#popup"></button></div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Carousel -->
+        <div class="carousel slide" id="myCarousel">
+        	<ol class="carousel-indicators">
+            	<li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+                <li data-slide-to="1" data-target="#myCarousel"></li>
+                <li data-slide-to="2" data-target="#myCarousel"></li>
+                <li data-slide-to="3" data-target="#myCarousel"></li>
+            </ol>
+        	<div class="carousel-inner">
+            	<div class="item active" id="slide1" onclick="window.location.href='/veloster'"></div>
+                <div class="item" id="slide2" onclick="window.location.href='/sonata'"></div>
+                <div class="item" id="slide3" onclick="window.location.href='/sonata-hybrid'"></div>
+                <div class="item" id="slide4" onclick="window.location.href='/tucson'"></div>
+            </div>
+        </div>
 
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <input type="submit" value="Register" class="btn btn-info btn-block">
-                            <button class="btn-block" class="btn-lg"> <a href="register.html">RUN DEMO</a></button>
+		<!-- Main Banner -->
+        <div class="banner">     
+            <div class="container">
+                <a onclick="window.location.href='/veloster'">
+                    <div class="banner-image"><img height="59" src="/images/main_banner.jpg"></div>
+                    <div class="banner-content">The Veloster Rally<br>Edition is coming soon.</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Car List -->
+        <div class="car-list">
+        	<div class="container" id="carContainer">
+            <!-- Adding with JS -->
+            <ul id='ul-1'>
+                <h3>Compacts</h3>
+                <div class=".col-xs-6 .col-sm-3">
+                    <li class="col-car">
                         
-                        </form>
+                       
+                            <img src="img/cars/compacts/2016_accent.png">
+                            <div><p>Name of car</p></div>
+                        
+                    
+                    </li>
+                </div>
+                <div class=".col-xs-6 .col-sm-3">
+                    <li class="col-car">
+                        
+                            <img src="img/cars/compacts/2016_elantra.png">
+                        
+                    </li>
+                </div>
+                <div class=".col-xs-6 .col-sm-3">
+                    <li class="col-car">
+                        
+                            <img src="img/cars/compacts/2016_elantra_coupe.png">
+                        
+                    </li>
+                </div>
+                <div class=".col-xs-6 .col-sm-3">
+                    <li class="col-car">
+                         
+                            <img src="img/cars/compacts/2016_elantra_gt.png">
+                        
+                    </li>
+                </div>
+                <div class=".col-xs-6 .col-sm-3">
+                    <li class="col-car">
+                        
+                            <img src="img/cars/compacts/2016_veloster.png">
+                        
+                    </li>
+                </div>
+            </ul>
+            </div>
+        </div>
+        
+        <!-- Find a Dealer -->
+        <div class="find-a-dealer">
+        	<div class="container">
+            	<div class="words-with-a-line">
+                    <span>Find a Dealer</span>
+                </div>
+                <div class="locate-main">
+                	<div class="left">
+                		<div class="use-my-location" onClick="javascript:UseMyLocation();">Use my Location</div>
+                    </div>
+                    <div class="right">
+                        <input type="text" id="zipcode" placeholder="ZIP Code" maxlength="5" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <button onclick="javascript:GoZip();">GO</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+        	<div class="container">
+            	<div class="words-with-a-line">
+                    <span>Shopping Tools</span>
+                </div>
+                <div class="shopping-tools">
+                    <ul>
+                        <li><a onclick="window.location.href='/build-and-price'">Build &amp; Price</a></li><!--
+                     --><li><a onclick="window.location.href='/search-inventory'">Search Inventory</a></li><!--
+                     --><li><a onclick="window.location.href='/find-a-dealer'">Find a Dealer</a></li><!--
+                     --><li><a onclick="window.location.href='/local-offers'">Local Offers</a></li><!--
+                     --><li><a onclick="window.location.href='/request-a-quote'">Request a Quote</a></li><!--
+                     --><li><a onclick="window.location.href='/schedule-a-test-drive'">Schedule a Test Drive</a></li><!--
+                     --><li><a onclick="window.location.href='/e-brochures'">E-brochures</a></li><!--
+                     --><li><a onclick="window.location.href='/trade-in-value'">Trade-in Value</a></li><!--
+                     --><li><a onclick="window.location.href='/payment-calculator'">Payment Calculator</a></li><!--
+                     --><li><a onclick="window.location.href='/vehicle-lineup'">Vehicle Lineup</a></li>
+                    </ul>
+                </div>
+                <div class="icons-with-a-line">
+                	<ul>
+                        <!-- Icon assets credit to https://dribbble.com/shots/1209419-20-Social-Media-Icons-Freebie -->
+                    	<li><a href="https://facebook.com/hyundai"><img src="img/icons/facebook.png"></a></li>
+                        <li><a href="https://twitter.com/hyundai"><img src="img/icons/twitter.png"></a></li>
+                        <li><a href="https://instagram.com/hyundai"><img src="img/icons/instagram.png"></a></li>
+                        <li><a href="https://youtube.com/hyundai"><img src="img/icons/youtube.png"></a></li>
+                        <li><a href="https://plus.google.com/hyundai"><img src="img/icons/g+.png"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-logo">
+                	<a onclick="window.location.href='/'"><img src="img/logo-blurb.png"></a>
+                </div>
+                <div class="footer-text">
+                	<ul>
+                		<li>Hyundai is a registered trademark of Hyundai</li> <li>Motor Company. All rights reserved.</li> <li>&#169; 2016 Hyundai Motor America</li>
+                    </ul>
+                </div>
+                <div class="footer-link">
+                	<ul>
+                    	<li><a onclick="window.location.href='/contact-us'">Contact Us</a></li><!--
+                     --><li><a onclick="window.location.href='/terms-of-use'">Terms of use</a></li><!--
+                     --><li><a onclick="window.location.href='/privacy'">Privacy</a></li><!--
+                     --><li><a onclick="window.location.href='/legal'">Legal</a></li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- jQuery JS -->
+		<script src="js/jquery.mobile-1.4.5/jquery-2.2.4.min.js"></script>  
+        <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>   
+        <!-- Bootstrap JS -->
+		<script src="css/bootstrap-4.0.0-alpha.3/dist/js/bootstrap.min.js"></script>
 
+        <script type="text/javascript">
+			//Hide the loading text came along with jquery.mobile
+			$.mobile.loading().hide();
+			
+			// //Load xml file for the car list
+			// var xhttp = new XMLHttpRequest();
+			// xhttp.onreadystatechange = function() {
+			// 	if (xhttp.readyState == 4 && xhttp.status == 200) {
+			// 		LoadCars(xhttp);
+			// 	}
+			// };
+			// xhttp.open("GET", "cars.xml", true);
+			// xhttp.send();
 
-  
-  </body>
+			// function LoadCars(xml) {
+			// 	var xmlDoc = xml.responseXML;
+			// 	var x = xmlDoc.getElementsByTagName("Car");
+			// 	var content = "<ul id='ul-1'>";
+			// 	var curCategory = "";
+   //  			for(var i = 0; i < x.length; i++) {
+			// 		var category = x[i].getElementsByTagName("Category")[0].childNodes[0].nodeValue;
+			// 		if(curCategory == "") {
+			// 			content += "<li><h3>"+category+"</h3><ul>";
+			// 		}
+			// 		else if(category != curCategory) {
+			// 			if(category == "Sedans" || category == "Crossovers") {
+			// 				content += "</ul></li><li class='col-list2'><h3>"+category+"</h3><ul>";
+			// 			}
+			// 			else {
+			// 				content += "</ul></li><li><h3>"+category+"</h3><ul>";
+			// 			}
+			// 		}
+			// 		content += '<a onclick="window.location.href=&#39;'+x[i].getElementsByTagName("Link")[0].childNodes[0].nodeValue+'&#39;">';
+			// 		if(category == "Sedans" || category == "Crossovers") {
+			// 			content += "<li class='col-car2'>";
+			// 		}
+			// 		else {
+			// 			content += "<li class='col-car'>";
+			// 		}
+			// 		content += "<div class='image-box' style='background:url(/images/cars/"+x[i].getElementsByTagName("ImageName")[0].childNodes[0].nodeValue+") no-repeat center center; background-size:contain;'>";
+			// 		//content += "<img src='/images/cars/" + x[i].getElementsByTagName("ImageName")[0].childNodes[0].nodeValue + "'>";
+			// 		content += "</div>";
+			// 		content += "<h4>" + x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue + "</h4>";
+			// 		var subTitle = x[i].getElementsByTagName("StartingPrice")[0].childNodes[0].nodeValue;
+			// 		if(isNaN(subTitle)) {
+			// 			content += "<h5>" + subTitle + "</h5>";
+			// 		}
+			// 		else {
+			// 			content += "<h5>From $" + subTitle.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"); + "</h5>";
+			// 		}
+			// 		content += "</li>";
+			// 		content += "</a>";
+			// 		curCategory = category;
+			// 	}
+			// 	content += "</ul></li></ul>";
+			// 	document.getElementById("carContainer").innerHTML = content;
+			// }
+			
+			//Use My Location
+			function UseMyLocation() {
+				if(navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						var latitude = position.coords.latitude;
+						var longitude = position.coords.longitude;
+						if(latitude == null || longitude == null) { alert("Failed to get your location."); }
+						$.ajax({
+							type: "GET",
+							url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true&callback=zipmap",							dataType: "json",
+							cache: true,
+							success: function(data) {
+								for( var i = 0; i < data.results[0].address_components.length; i++) {
+									var s = data.results[0].address_components[i];
+									if( s.types == "postal_code" ) {
+										window.location.href = "/find-a-dealer/" + s.short_name;
+										return;
+									}
+								}
+								alert("Failed to get your location.");
+							}
+						})
+						
+					});
+				}
+			}
+			
+			//Hit GO button in the Find a Dealer section
+			function GoZip() {
+				var zip = document.getElementById("zipcode").value;
+				if(zip.length < 5) {
+					alert("Please enter a vaild zipcode.");
+					return;
+				}
+				window.location.href = "/find-a-dealer/"+zip;
+			}
+			
+			//Web page on load
+			$(document).ready(function() {
+				$('#myCarousel').carousel({
+					interval: 5000
+				});
+				$("#myCarousel").swiperight(function() {  
+					$(this).carousel('prev');  
+				});  
+				$("#myCarousel").swipeleft(function() {  
+					$(this).carousel('next');  
+				});
+			});  
+		</script>
+    </body>
 </html>
